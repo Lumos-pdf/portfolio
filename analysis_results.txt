@@ -1,0 +1,13 @@
+import numpy as np
+import pandas as pd
+
+df = pd.read_csv('superstore_clean.csv')
+
+df.columns = df.columns.str.strip()
+
+sales = np.array(df['Sales'])
+profit = np.array(df['Profit'])
+discount = np.array(df['Discount'])
+
+print("Average Sales:", np.mean(sales))
+print("Correlation Discount vs Profit:", np.corrcoef(discount, profit)[0,1])
